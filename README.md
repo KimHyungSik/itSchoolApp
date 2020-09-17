@@ -1,5 +1,5 @@
 진행율
 ======
 ---------------------------------------
-- [ ] Loading Logo
-- [x] Login
+- [x] Loading Logo
+- [ ] Login
