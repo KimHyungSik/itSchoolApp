@@ -1,3 +1,5 @@
-"# itSchoolApp" 
-[O]Loading Logo
+진행율
+======
+---------------------------------------
+[ ]Loading Logo
 [x]Login
