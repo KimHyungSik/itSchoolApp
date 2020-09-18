@@ -1,16 +1,37 @@
 import React from 'react';
-import {View, StyleSheet, TextInput, Image} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  TextInput,
+  Image,
+  Animated,
+  TouchableOpacity,
+} from 'react-native';
 
 export default class loginPage extends React.Component {
   state = {
     value: '',
+    LoginopAnimation: new Animated.Value(0),
   };
 
   handleValue = (text) => {
     this.setState({value: text});
   };
 
+  componentDidMount() {
+    Animated.sequence([
+      Animated.timing(this.state.LoginopAnimation, {
+        toValue: 1,
+        duration: 1200,
+        useNativeDriver: 'true',
+      }),
+    ]).start();
+  }
+
   render() {
+    const LoginAin = {
+      opacity: this.state.LoginopAnimation,
+    };
     return (
       <View style={styels.container}>
         <View style={styels.titleView}>
@@ -18,18 +39,19 @@ export default class loginPage extends React.Component {
             source={require('../../resource/images/schoolLogo.png')}
             style={styels.imageLogo}></Image>
         </View>
-        <View style={styels.loginView}>
+        <Animated.View style={[styels.loginView, LoginAin]}>
           <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            style={styels.inputBox}
             value={this.state.value}
             onChangeText={this.handleValue}
           />
           <TextInput
-            style={{height: 40, borderColor: 'gray', borderWidth: 1}}
+            style={styels.inputBox}
             value={this.state.value}
             onChangeText={this.handleValue}
           />
-        </View>
+          <TouchableOpacity style={styels.loginButtin}></TouchableOpacity>
+        </Animated.View>
       </View>
     );
   }
@@ -37,6 +59,7 @@ export default class loginPage extends React.Component {
 
 const styels = StyleSheet.create({
   container: {
+    backgroundColor: '#ffffff',
     flex: 1,
   },
   titleView: {
@@ -46,8 +69,8 @@ const styels = StyleSheet.create({
     alignItems: 'center',
   },
   loginView: {
-    flex: 3,
-    backgroundColor: '#ffffff',
+    flex: 2,
+    opacity: 0,
     width: '80%',
     marginLeft: 'auto',
     marginRight: 'auto',
@@ -55,5 +78,18 @@ const styels = StyleSheet.create({
   imageLogo: {
     resizeMode: 'contain',
     width: 180,
+  },
+  inputBox: {
+    height: 40,
+    marginTop: '10%',
+    borderColor: 'gray',
+    borderWidth: 1,
+  },
+  loginButtin: {
+    width: '100%',
+    height: 50,
+    backgroundColor: 'red',
+    marginTop: '18%',
+    borderRadius: 14,
   },
 });
