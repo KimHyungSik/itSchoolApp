@@ -34,14 +34,14 @@ export default class loginPage extends React.Component {
     };
     return (
       <View style={styels.container}>
-        <View style={styels.titleView}>
+        <View style={[styels.titleView, styels.shadow]}>
           <Image
-            source={require('../../resource/images/schoolLogo.png')}
+            source={require('../../resource/images/schoolLogo2.png')}
             style={styels.imageLogo}></Image>
         </View>
         <Animated.View style={[styels.loginView, LoginAin]}>
           <TextInput
-            style={styels.inputBox}
+            style={[styels.inputBox]}
             value={this.state.value}
             onChangeText={this.handleValue}
           />
@@ -64,7 +64,7 @@ const styels = StyleSheet.create({
   },
   titleView: {
     flex: 1,
-    backgroundColor: '#02365D',
+    backgroundColor: '#2358A6',
     justifyContent: 'center',
     alignItems: 'center',
   },
@@ -91,5 +91,21 @@ const styels = StyleSheet.create({
     backgroundColor: 'red',
     marginTop: '18%',
     borderRadius: 14,
+  },
+  shadow: {
+    ...Platform.select({
+      ios: {
+        shadowColor: '#000',
+        shadowOffset: {width: 0, height: 4},
+        shadowOpacity: 0.3,
+        shadowRadius: 4,
+      },
+      android: {
+        shadowOpacity: 0.32,
+        shadowRadius: 5.46,
+
+        elevation: 9,
+      },
+    }),
   },
 });

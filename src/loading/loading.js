@@ -25,7 +25,7 @@ export default class loading extends React.Component {
       <View style={styels.container}>
         <View style={styels.titleView}>
           <Image
-            source={require('../../resource/images/schoolLogo.png')}
+            source={require('../../resource/images/schoolLogo2.png')}
             style={styels.imageLogo}></Image>
         </View>
         <Animated.View style={[styels.loginView, LoginAin]}></Animated.View>
@@ -41,7 +41,7 @@ const styels = StyleSheet.create({
   },
   titleView: {
     flex: 1,
-    backgroundColor: '#02365D',
+    backgroundColor: '#2358A6',
     justifyContent: 'center',
     alignItems: 'center',
   },

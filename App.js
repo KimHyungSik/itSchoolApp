@@ -1,6 +1,8 @@
 import React from 'react';
 import Login from './src/main/loginPage';
 import Loading from './src/loading/loading';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
 export default class App extends React.Component {
   state = {
@@ -14,10 +16,17 @@ export default class App extends React.Component {
   };
 
   render() {
+    const Stack = createStackNavigator();
     if (this.state.isLoading) {
       return <Loading />;
     } else {
-      return <Login />;
+      return (
+        <NavigationContainer>
+          <Stack.Navigator>
+            <Stack.Screen name="로그인" component={Login} />
+          </Stack.Navigator>
+        </NavigationContainer>
+      );
     }
   }
 }
