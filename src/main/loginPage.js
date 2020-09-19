@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {
   View,
   StyleSheet,
@@ -9,6 +10,9 @@ import {
 } from 'react-native';
 
 export default class loginPage extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   state = {
     value: '',
     LoginopAnimation: new Animated.Value(0),
@@ -34,7 +38,13 @@ export default class loginPage extends React.Component {
     };
     return (
       <View style={styels.container}>
-        <View style={[styels.titleView, styels.shadow]}>
+        <View style={[styels.titleView]}>
+          <TouchableOpacity
+            style={styels.menuIcon}
+            onPress={() => this.props.navigation.toggleDrawer()}>
+            <Image
+              source={require('../../resource/images/menu_icon.png')}></Image>
+          </TouchableOpacity>
           <Image
             source={require('../../resource/images/schoolLogo2.png')}
             style={styels.imageLogo}></Image>
@@ -107,5 +117,12 @@ const styels = StyleSheet.create({
         elevation: 9,
       },
     }),
+  },
+  menuIcon: {
+    height: 40,
+    position: 'absolute',
+    top: 0,
+    left: 6,
+    alignSelf: 'flex-start',
   },
 });

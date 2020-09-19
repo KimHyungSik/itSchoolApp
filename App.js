@@ -1,10 +1,12 @@
 import React from 'react';
-import Login from './src/main/loginPage';
 import Loading from './src/loading/loading';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import TabNavigation from './src/navigation/DrawerNavigation';
 
 export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
   state = {
     isLoading: true,
   };
@@ -16,17 +18,10 @@ export default class App extends React.Component {
   };
 
   render() {
-    const Stack = createStackNavigator();
     if (this.state.isLoading) {
       return <Loading />;
     } else {
-      return (
-        <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen name="로그인" component={Login} />
-          </Stack.Navigator>
-        </NavigationContainer>
-      );
+      return <TabNavigation style={{flex: 7}} />;
     }
   }
 }
