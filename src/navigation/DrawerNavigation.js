@@ -4,22 +4,19 @@ import Login from '../main/loginPage';
 import Board from '../main/boardPage';
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
-import {createDrawerNavigator} from '@react-navigation/drawer';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
 export default class DrawerNavigation extends React.Component {
   render() {
-    const Drawer = createDrawerNavigator();
+    const Tab = createBottomTabNavigator();
     return (
       <NavigationContainer>
-        <Drawer.Navigator
-          drawerContentOptions={{
-            activeTintColor: '#e91e63',
-          }}>
-          <Drawer.Screen name="로그인" component={Login} />
-          <Drawer.Screen name="공지사항" component={Notice} />
-          <Drawer.Screen name="자유게시판" component={Board} />
-          <Drawer.Screen name="성적조회" component={Grades} />
-        </Drawer.Navigator>
+        <Tab.Navigator>
+          <Tab.Screen name="Login" component={Login} />
+          <Tab.Screen name="Notice" component={Notice} />
+          <Tab.Screen name="Board" component={Board} />
+          <Tab.Screen name="Grades" component={Grades} />
+        </Tab.Navigator>
       </NavigationContainer>
     );
   }

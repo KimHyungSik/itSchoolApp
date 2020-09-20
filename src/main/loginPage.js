@@ -10,9 +10,6 @@ import {
 } from 'react-native';
 
 export default class loginPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   state = {
     value: '',
     LoginopAnimation: new Animated.Value(0),
@@ -38,7 +35,7 @@ export default class loginPage extends React.Component {
     };
     return (
       <View style={styels.container}>
-        <View style={[styels.titleView]}>
+        <View style={[styels.titleView, styels.shadow]}>
           <TouchableOpacity
             style={styels.menuIcon}
             onPress={() => this.props.navigation.toggleDrawer()}>

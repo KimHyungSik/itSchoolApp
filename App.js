@@ -21,7 +21,7 @@ export default class App extends React.Component {
     if (this.state.isLoading) {
       return <Loading />;
     } else {
-      return <TabNavigation style={{flex: 7}} />;
+      return <TabNavigation />;
     }
   }
 }

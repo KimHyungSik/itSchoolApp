@@ -5,12 +5,6 @@ export default class grades extends React.Component {
   render() {
     return (
       <View>
-        <TouchableOpacity
-          style={styels.menuIcon}
-          onPress={() => this.props.navigation.toggleDrawer()}>
-          <Image
-            source={require('../../resource/images/menu_icon.png')}></Image>
-        </TouchableOpacity>
         <Text>grades</Text>
       </View>
     );
