@@ -36,12 +36,6 @@ export default class loginPage extends React.Component {
     return (
       <View style={styels.container}>
         <View style={[styels.titleView, styels.shadow]}>
-          <TouchableOpacity
-            style={styels.menuIcon}
-            onPress={() => this.props.navigation.toggleDrawer()}>
-            <Image
-              source={require('../../resource/images/menu_icon.png')}></Image>
-          </TouchableOpacity>
           <Image
             source={require('../../resource/images/schoolLogo2.png')}
             style={styels.imageLogo}></Image>

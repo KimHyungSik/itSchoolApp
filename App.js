@@ -1,6 +1,6 @@
 import React from 'react';
 import Loading from './src/loading/loading';
-import TabNavigation from './src/navigation/DrawerNavigation';
+import TabNavigation from './src/navigation/TabNavigation';
 
 export default class App extends React.Component {
   constructor(props) {
