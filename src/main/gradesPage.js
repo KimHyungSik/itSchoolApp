@@ -1,22 +1,22 @@
 import React from 'react';
 import {View, Text, StyleSheet, TouchableOpacity, Image} from 'react-native';
+import TopTitle from '../part/topTitle';
 
 export default class grades extends React.Component {
   render() {
     return (
       <View>
-        <Text>grades</Text>
+        <TopTitle title="한국it직업전문학교"></TopTitle>
       </View>
     );
   }
 }
 
 const styels = StyleSheet.create({
-  menuIcon: {
-    height: 40,
-    position: 'absolute',
-    top: 0,
-    left: 6,
-    alignSelf: 'flex-start',
+  title: {
+    backgroundColor: '#2358A6',
+    height: 42,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 });
